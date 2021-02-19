@@ -1,0 +1,17 @@
+.game-aside {
+    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    background-color: brown;
+    width: 250px;
+    .game-aside__deck {
+        width: 70%;
+        margin-top: 30px;
+        img {
+            width: 100%;
+        }
+    }
+}
