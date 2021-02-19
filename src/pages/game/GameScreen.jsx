@@ -1,8 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { initGame, pickCard } from "../../actions/gameActions";
 import Aside from "../../components/Aside";
 import PlayerCards from "../../components/PlayerCards";
 
 const GameScreen = () => {
+
+    const dispatch = useDispatch();
+    dispatch( initGame() );
+    dispatch( pickCard() );
+
   return (
     <div className="main__box">
       <div className="row no-gutters" style={{ height: "100%" }}>
