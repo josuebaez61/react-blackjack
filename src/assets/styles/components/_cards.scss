@@ -1,9 +1,17 @@
 .in-game-cards {
+    max-width: 934px;
     img {
         position: relative;
         left: 90px;
         margin-left: -90px;
         height: 267.43px;
         width: 175px;
+    }
+}
+
+.in-game-cards--stacked {
+    img {
+        left: 106px;
+        margin-left: -106px;
     }
 }
