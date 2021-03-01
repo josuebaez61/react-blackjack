@@ -7,7 +7,7 @@ import PlayersTitles from "../../components/PlayersTitles";
 
 const GameScreen = () => {
   const dispatch = useDispatch();
-  dispatch(initGame());
+  // dispatch(initGame());
   
 
   return (

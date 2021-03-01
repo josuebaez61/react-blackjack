@@ -4,8 +4,28 @@ import { getResults } from "../helpers/getResults";
 import { getCardValue } from "../helpers/getCardValue";
 import { getRounds } from "../helpers/getRounds";
 
+const createDeck = () => {
+  const deck = [];
+  const suits = ["C", "D", "H", "S"];
+  const letters = ["A", "J", "Q", "K"];
+  for (const suit of suits) {
+    for (const letter of letters) {
+      deck.push(letter + suit);
+    }
+    for (let i = 2; i <= 10; i++) {
+      deck.push(i + suit);
+    }
+  }
+  
+  while ( deck.length > 5 ) {
+    deck.pop();
+  }
+
+  return deck;
+}
+
 const initialState = {
-  deck: [],
+  deck: createDeck(),
   player_cards: [],
   ia_cards: [],
   turn: "player",
@@ -26,25 +46,8 @@ export const gameReducer = (state = initialState, action) => {
   let cloneState = { ...state };
 
   switch (action.type) {
-    case types.initGame:
-      const deck = [];
-      const suits = ["C", "D", "H", "S"];
-      const letters = ["A", "J", "Q", "K"];
-      for (const suit of suits) {
-        for (const letter of letters) {
-          deck.push(letter + suit);
-        }
-        for (let i = 2; i <= 10; i++) {
-          deck.push(i + suit);
-        }
-      }
-      return {
-        ...state,
-        deck: _.shuffle(deck),
-      };
 
     case types.pickCard:
-      
       const cardName = String(cloneState.deck.pop());
       let cardValue = getCardValue(cardName);
 
@@ -83,27 +86,33 @@ export const gameReducer = (state = initialState, action) => {
       };
 
     case types.changeTurn:
-      const newTurn = action.currentTurn === "player" ? "ia" : "player";
-      return { ...state, turn: newTurn };
+      return { ...state, turn: action.currentTurn === "player" ? "ia" : "player" };
 
     case types.execIATurn:
-      
       let iaPoints = cloneState["score"]["points"]["ia_points"];
       let playerPoints = cloneState["score"]["points"]["player_points"];
       let ia_cards = [];
-      while (iaPoints <= playerPoints) {
-        const cardName = String(cloneState.deck.pop());
-        let cardValue = getCardValue(cardName);
-        const card = {
-          name: cardName,
-          value: cardValue,
-        };
-        ia_cards.push(card);
-        iaPoints += cardValue;
+      if (cloneState.deck.length > 0) {
+        while (iaPoints <= playerPoints) {
+          if ( cloneState.deck.length <= 0 ) {
+            break;
+          }
+          const cardName = String(cloneState.deck.pop());
+          let cardValue = getCardValue(cardName);
+          const card = {
+            name: cardName,
+            value: cardValue,
+          };
+          ia_cards.push(card);
+          iaPoints += cardValue;
+        }
       }
 
-      const iaTurnResults = getResults(playerPoints, iaPoints, cloneState["turn"]);
-
+      const iaTurnResults = getResults(
+        playerPoints,
+        iaPoints,
+        cloneState["turn"]
+      );
       return {
         ...cloneState,
         ia_cards,
@@ -132,6 +141,9 @@ export const gameReducer = (state = initialState, action) => {
           player_wins: null,
         },
       };
+
+    case types.reset:
+      return {...initialState, deck: createDeck()};
 
     default:
       return state;

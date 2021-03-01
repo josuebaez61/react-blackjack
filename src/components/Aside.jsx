@@ -1,28 +1,36 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeTurn, execIATurn } from '../actions/gameActions'
 import Deck from './Deck'
 import GameButtons from './GameButtons'
 import Scoreboard from './Scoreboard'
 
 const Aside = () => {
 
-    
   let { 
     deck,
+    turn,
     score: { 
       player_wins,
       rounds
     } 
   } = useSelector(({game}) => game);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-      console.log(rounds)
-  }, [rounds])
+    if ( turn === 'player' ) {
+      if ( deck.length <= 0 ) {
+        dispatch( changeTurn( 'player' ) );      
+        dispatch( execIATurn() );
+      }
+    }
+  }, [deck.length ])
 
     return (
         <aside className="game-aside" >
             <Scoreboard rounds={ rounds }/>
-            <Deck cardscounter={ deck.length }/>
+            <Deck deckcounter={ deck.length }/>
             <GameButtons deckcounter={ deck.length } playerwins={ player_wins }/>
         </aside>
     )

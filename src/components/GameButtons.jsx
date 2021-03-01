@@ -1,25 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { createSelectorHook, shallowEqual, useDispatch, useSelector } from "react-redux";
-import { changeTurn, endRound, execIATurn, pickCard, startPickCard } from "../actions/gameActions";
+import Swal from "sweetalert2";
+import { changeTurn, endRound, execIATurn, initGame, pickCard, reset, startPickCard } from "../actions/gameActions";
 
 const GameButtons = ({ deckcounter, playerwins }) => {
-
-  // let { 
-  //   score: { 
-  //     playerwins
-  //   } 
-  // } = useSelector(({game}) => game);
-
-  useEffect(() => {
-    console.log('playerwins', playerwins)
-
-  }, [playerwins])
 
   const dispatch = useDispatch();
 
   const handleChangeTurn = () => {
-    console.log('playerwins', playerwins)
-
     dispatch( changeTurn('player') );      
     dispatch( execIATurn() );
   }
@@ -35,6 +23,25 @@ const GameButtons = ({ deckcounter, playerwins }) => {
 
   const handleMouseOver = (e) => {
     e.target.disabled ? e.target.classList.add('notAllowed') : e.target.classList.remove('notAllowed')
+  }
+
+  const handleNewGame = () => {
+
+    Swal.fire({
+      icon: 'question',
+      title: '¿Está seguro de iniciar una nueva partida?',
+      text: 'Se reiniciará el marcador y la baraja',
+      showConfirmButton: true,
+      confirmButtonText: 'Confirmar',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar'
+    }).then( ( {isConfirmed} ) => {
+      if ( isConfirmed ) {
+        dispatch( reset() );
+        // dispatch( initGame() );
+      }
+    });
+
   }
 
   return (
@@ -60,7 +67,7 @@ const GameButtons = ({ deckcounter, playerwins }) => {
       >
         Siguiente Ronda
       </button>
-      <button type="button" className="btn btn-secondary" onMouseOver={ handleMouseOver }>
+      <button onClick={ handleNewGame } type="button" className="btn btn-secondary" onMouseOver={ handleMouseOver }>
         Nueva Partida
       </button>
     </div>

@@ -31,6 +31,14 @@ export const getResults = ( playerPoints, iaPoints, turn ) => {
             })
             return false;
         }
+        else if (playerPoints > 21 ) {
+            Swal.fire({
+                icon: 'error',
+                title: '¡Perdiste esta ronda!',
+                text: 'Obtuviste más de 21 puntos'
+            })
+            return false;
+        }
         else if ( iaPoints > 21 ) {
             Swal.fire({
                 icon: 'success',

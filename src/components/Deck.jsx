@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { pickCard } from '../actions/gameActions';
 import deckImg from '../assets/images/grey_back.png';
 
-const Deck = ({ cardscounter }) => {
+const Deck = ({ deckcounter }) => {
 
     const dispatch = useDispatch();
     
@@ -14,13 +14,13 @@ const Deck = ({ cardscounter }) => {
     return (
         <div className="game-aside__deck"> 
             {
-                cardscounter > 0 ? 
+                deckcounter > 0 ? 
                 <img onClick={ handleClick } src={ deckImg } alt="deck"/> :
                 <div className="game-aside__empty_deck">
                     Fin del juego
                 </div>
             }
-            <span className="game-aside__cards-counter">{ cardscounter }</span>
+            <span className="game-aside__cards-counter">{ deckcounter }</span>
         </div>
     )
 }

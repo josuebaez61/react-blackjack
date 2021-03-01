@@ -4,4 +4,5 @@ export const types = {
     changeTurn: '[game] Change turn',
     execIATurn: '[game] Execute IA turn',
     endRound: '[game] End round',
+    reset: '[game] Reset to initial state',
 }
