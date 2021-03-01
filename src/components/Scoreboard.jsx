@@ -1,29 +1,25 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
 
-const Scoreboard = () => {
+const Scoreboard = ({rounds:{ player_rounds, ia_rounds }}) => {
 
-  const { player_points, ia_points } = useSelector(({score}) => score);
-  const dispatch = useDispatch();
+  return (
+    <div>
+      <table className="scoreboard mt-2">
+        <tbody>
+          <tr>
+            <td>{player_rounds}</td>
+            <td>{ia_rounds}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Jugador</th>
+            <th>Adversario</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  );
+};
 
-  useEffect(() => {
-    // evalPlayerPoints(player_points).then((res) => {
-
-    //     if ( res ) { 
-    //         console.log('Se evaluo');
-    //     }
-    // });
-
-    return () => {
-    //   cleanup
-    }
-  }, [player_points, ia_points])
-
-    return (
-        <>
-            
-        </>
-    )
-}
-
-export default Scoreboard
+export default Scoreboard;

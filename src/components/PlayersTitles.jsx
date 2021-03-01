@@ -1,12 +1,13 @@
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types'
 
 const PlayersTitles = ({name}) => {
 
   const { points: {player_points, ia_points} } = useSelector(({game: { score }}) => score);
+
 
     return (
         <h3 className="fontEastwood" style={{fontSize:'2.6rem'}}>

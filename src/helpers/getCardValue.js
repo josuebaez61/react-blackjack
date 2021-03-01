@@ -24,6 +24,5 @@ export const getCardValue = ( cardName ) => {
     } else {
         cardValue = Number(cardName.substring(0,2));
     }
-
     return cardValue;
 }

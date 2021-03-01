@@ -1,0 +1,15 @@
+.scoreboard {
+    text-align: center;
+    background-color: black;
+    width: 200px;
+    border: 1px solid white;
+    td {
+        font-size: 2rem;
+    }
+    td, th {
+        border: 1px solid white;
+        font-family: Eastwood;
+        padding: 5px;
+        width: 50%;
+    }
+}

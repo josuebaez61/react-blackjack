@@ -3,5 +3,5 @@ export const types = {
     pickCard: '[game] Pick card',
     changeTurn: '[game] Change turn',
     execIATurn: '[game] Execute IA turn',
-    setPlayerPoints: '[score] Set player points'
+    endRound: '[game] End round',
 }
