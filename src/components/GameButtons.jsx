@@ -38,7 +38,6 @@ const GameButtons = ({ deckcounter, playerwins }) => {
     }).then( ( {isConfirmed} ) => {
       if ( isConfirmed ) {
         dispatch( reset() );
-        // dispatch( initGame() );
       }
     });
 

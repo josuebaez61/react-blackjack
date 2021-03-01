@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { initGame, pickCard } from "../../actions/gameActions";
+import React from "react";
 import Aside from "../../components/Aside";
 import PlayerCards from "../../components/PlayerCards";
 import PlayersTitles from "../../components/PlayersTitles";
 
 const GameScreen = () => {
-  const dispatch = useDispatch();
-  // dispatch(initGame());
-  
 
   return (
     <div className="main__box">

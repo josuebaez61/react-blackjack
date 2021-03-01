@@ -30,7 +30,7 @@ const Aside = () => {
     return (
         <aside className="game-aside" >
             <Scoreboard rounds={ rounds }/>
-            <Deck deckcounter={ deck.length }/>
+            <Deck deckcounter={ deck.length } playerwins={ player_wins }/>
             <GameButtons deckcounter={ deck.length } playerwins={ player_wins }/>
         </aside>
     )

@@ -5,7 +5,7 @@ import { getCardValue } from "../helpers/getCardValue";
 import { getRounds } from "../helpers/getRounds";
 
 const createDeck = () => {
-  const deck = [];
+  let deck = [];
   const suits = ["C", "D", "H", "S"];
   const letters = ["A", "J", "Q", "K"];
   for (const suit of suits) {
@@ -17,9 +17,11 @@ const createDeck = () => {
     }
   }
   
-  while ( deck.length > 5 ) {
-    deck.pop();
-  }
+  // while ( deck.length > 5 ) {
+  //   deck.pop();
+  // }
+
+  deck = ['AD', 'AC'] // FIXME la imagen AD nunca se muestra porque es bloqueada por los AD block
 
   return deck;
 }
@@ -112,7 +114,7 @@ export const gameReducer = (state = initialState, action) => {
         playerPoints,
         iaPoints,
         cloneState["turn"]
-      );
+        );
       return {
         ...cloneState,
         ia_cards,

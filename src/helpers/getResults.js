@@ -53,7 +53,7 @@ export const getResults = ( playerPoints, iaPoints, turn ) => {
                 title: '¡Empate!',
                 text: 'Ambos jugadores obtuvieron la misma cantidad de puntos'
             });
-            return false;
+            return null;
         }
         else if ( playerPoints < iaPoints ) {
             Swal.fire({

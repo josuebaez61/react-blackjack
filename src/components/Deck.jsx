@@ -3,19 +3,21 @@ import { useDispatch } from 'react-redux';
 import { pickCard } from '../actions/gameActions';
 import deckImg from '../assets/images/grey_back.png';
 
-const Deck = ({ deckcounter }) => {
+const Deck = ({ deckcounter, playerwins }) => {
 
     const dispatch = useDispatch();
     
     const handleClick = () => {
-        dispatch( pickCard('player') );
+        if (playerwins === null) {
+            dispatch( pickCard('player') );
+        }
     }
 
     return (
         <div className="game-aside__deck"> 
             {
                 deckcounter > 0 ? 
-                <img onClick={ handleClick } src={ deckImg } alt="deck"/> :
+                <img onClick={ handleClick } className={ ( playerwins !== null ) ? 'notAllowed' : 'pointer' } src={ deckImg } alt="deck"/> :
                 <div className="game-aside__empty_deck">
                     Fin del juego
                 </div>
