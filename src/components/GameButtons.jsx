@@ -22,7 +22,7 @@ const GameButtons = ({ deckcounter, playerwins }) => {
   }
 
   const handleMouseOver = (e) => {
-    e.target.disabled ? e.target.classList.add('notAllowed') : e.target.classList.remove('notAllowed')
+    e.target.disabled ? e.target.classList.add('not-allowed') : e.target.classList.remove('not-allowed')
   }
 
   const handleNewGame = () => {
@@ -40,33 +40,32 @@ const GameButtons = ({ deckcounter, playerwins }) => {
         dispatch( reset() );
       }
     });
-
   }
 
   return (
-    <div className="btn-group-vertical mt-4">
+    <div className="btn-group-vertical mt-3">
       <button 
-        onClick={ handlePickCard } type="button" className="btn btn-primary" 
+        onClick={ handlePickCard } type="button" className="btn btn-primary game-button" 
         onMouseOver={ handleMouseOver }
         disabled={ (playerwins !== null) || (deckcounter <= 0) ? true : false  }
       >
         Tomar Carta
       </button>
       <button 
-        onClick={ handleChangeTurn } type="button" className="btn btn-success" 
+        onClick={ handleChangeTurn } type="button" className="btn btn-success game-button" 
         onMouseOver={ handleMouseOver }
         disabled={ (playerwins !== null) || (deckcounter <= 0) ? true : false  }
       >
         Pasar Turno
       </button>
       <button 
-        onClick={ handleNextRound } type="button" className="btn btn-warning" 
+        onClick={ handleNextRound } type="button" className="btn btn-warning game-button" 
         onMouseOver={ handleMouseOver }
         disabled={ (playerwins === null) || (deckcounter <= 0) ? true : false }
       >
         Siguiente Ronda
       </button>
-      <button onClick={ handleNewGame } type="button" className="btn btn-secondary" onMouseOver={ handleMouseOver }>
+      <button onClick={ handleNewGame } type="button" className="btn btn-secondary game-button" onMouseOver={ handleMouseOver }>
         Nueva Partida
       </button>
     </div>

@@ -1,6 +1,6 @@
 import { types } from "../types/types";
 import _ from "underscore";
-import { getResults } from "../helpers/getResults";
+import { getResults, showEndGameAlert } from "../helpers/getResults";
 import { getCardValue } from "../helpers/getCardValue";
 import { getRounds } from "../helpers/getRounds";
 
@@ -16,15 +16,11 @@ const createDeck = () => {
       deck.push(i + suit);
     }
   }
-  
-  // while ( deck.length > 5 ) {
-  //   deck.pop();
-  // }
 
-  deck = ['AD', 'AC'] // FIXME la imagen AD nunca se muestra porque es bloqueada por los AD block
+  // deck = ["10C"];
 
   return deck;
-}
+};
 
 const initialState = {
   deck: createDeck(),
@@ -48,7 +44,6 @@ export const gameReducer = (state = initialState, action) => {
   let cloneState = { ...state };
 
   switch (action.type) {
-
     case types.pickCard:
       const cardName = String(cloneState.deck.pop());
       let cardValue = getCardValue(cardName);
@@ -58,19 +53,14 @@ export const gameReducer = (state = initialState, action) => {
         value: cardValue,
       };
 
-      let player_points;
-      let ia_points;
-      let results;
-
-      if (action.turn === "player") {
-        player_points = cloneState.score.points.player_points + cardValue;
-        ia_points = cloneState.score.points.ia_points;
-        results = getResults(
-          player_points,
-          cloneState["score"]["points"]["ia_points"],
-          action.turn
-        );
-      }
+      let player_points = cloneState.score.points.player_points + cardValue;
+      let ia_points = cloneState.score.points.ia_points;
+      let results = getResults(
+        player_points,
+        cloneState["score"]["points"]["ia_points"],
+        action.turn,
+        cloneState["deck"].length
+      );
 
       return {
         ...cloneState,
@@ -88,7 +78,10 @@ export const gameReducer = (state = initialState, action) => {
       };
 
     case types.changeTurn:
-      return { ...state, turn: action.currentTurn === "player" ? "ia" : "player" };
+      return {
+        ...state,
+        turn: action.currentTurn === "player" ? "ia" : "player",
+      };
 
     case types.execIATurn:
       let iaPoints = cloneState["score"]["points"]["ia_points"];
@@ -96,7 +89,7 @@ export const gameReducer = (state = initialState, action) => {
       let ia_cards = [];
       if (cloneState.deck.length > 0) {
         while (iaPoints <= playerPoints) {
-          if ( cloneState.deck.length <= 0 ) {
+          if (cloneState.deck.length <= 0) {
             break;
           }
           const cardName = String(cloneState.deck.pop());
@@ -113,8 +106,9 @@ export const gameReducer = (state = initialState, action) => {
       const iaTurnResults = getResults(
         playerPoints,
         iaPoints,
-        cloneState["turn"]
-        );
+        cloneState["turn"],
+        cloneState["deck"].length
+      );
       return {
         ...cloneState,
         ia_cards,
@@ -145,7 +139,7 @@ export const gameReducer = (state = initialState, action) => {
       };
 
     case types.reset:
-      return {...initialState, deck: createDeck()};
+      return { ...initialState, deck: createDeck() };
 
     default:
       return state;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GameTitle from "../../components/atoms/GameTitle";
+import GameTitle from "../../components/GameTitle";
 
 const HomeScreen = () => {
   return (
