@@ -25,13 +25,13 @@ const Aside = () => {
         dispatch( execIATurn() );
       }
     }
-  }, [deck.length ])
+  }, [ deck.length ])
 
     return (
         <aside className="game-aside" >
             <Scoreboard rounds={ rounds }/>
-            <Deck deckcounter={ deck.length } playerwins={ player_wins }/>
-            <GameButtons deckcounter={ deck.length } playerwins={ player_wins }/>
+            <Deck deck={ deck } playerwins={ player_wins }/>
+            <GameButtons deck={ deck } playerwins={ player_wins }/>
         </aside>
     )
 }

@@ -1,0 +1,12 @@
+.menu {
+    list-style-type: none;
+    font-family: Eastwood;
+    li, button, a {
+        color: white;
+        font-size: 2rem;
+        &:hover {
+            color: #ccc;
+            text-decoration: none;
+        }
+    }
+}

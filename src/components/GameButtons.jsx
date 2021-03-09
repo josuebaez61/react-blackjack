@@ -3,7 +3,7 @@ import { createSelectorHook, shallowEqual, useDispatch, useSelector } from "reac
 import Swal from "sweetalert2";
 import { changeTurn, endRound, execIATurn, initGame, pickCard, reset, startPickCard } from "../actions/gameActions";
 
-const GameButtons = ({ deckcounter, playerwins }) => {
+const GameButtons = ({ deck, playerwins }) => {
 
   const dispatch = useDispatch();
 
@@ -47,21 +47,21 @@ const GameButtons = ({ deckcounter, playerwins }) => {
       <button 
         onClick={ handlePickCard } type="button" className="btn btn-primary game-button" 
         onMouseOver={ handleMouseOver }
-        disabled={ (playerwins !== null) || (deckcounter <= 0) ? true : false  }
+        disabled={ (playerwins !== null) || (deck.length <= 0) ? true : false  }
       >
         Tomar Carta
       </button>
       <button 
         onClick={ handleChangeTurn } type="button" className="btn btn-success game-button" 
         onMouseOver={ handleMouseOver }
-        disabled={ (playerwins !== null) || (deckcounter <= 0) ? true : false  }
+        disabled={ (playerwins !== null) || (deck.length <= 0) ? true : false  }
       >
         Pasar Turno
       </button>
       <button 
         onClick={ handleNextRound } type="button" className="btn btn-warning game-button" 
         onMouseOver={ handleMouseOver }
-        disabled={ (playerwins === null) || (deckcounter <= 0) ? true : false }
+        disabled={ (playerwins === null) || (deck.length <= 0) ? true : false }
       >
         Siguiente Ronda
       </button>

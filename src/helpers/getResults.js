@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 
 export const getResults = ( playerPoints, iaPoints, turn, deckcounter ) => {
 
-    console.log('deckcounter', deckcounter)
     if ( turn === 'player' ) {
         if (playerPoints > 21 ) {
             Swal.fire({
