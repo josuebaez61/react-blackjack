@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/react-blackjack/static/css/main.0af143b8.chunk.css",
+    "main.js": "/react-blackjack/static/js/main.17afb537.chunk.js",
+    "main.js.map": "/react-blackjack/static/js/main.17afb537.chunk.js.map",
+    "runtime-main.js": "/react-blackjack/static/js/runtime-main.112a79a1.js",
+    "runtime-main.js.map": "/react-blackjack/static/js/runtime-main.112a79a1.js.map",
+    "static/js/2.8ad96e55.chunk.js": "/react-blackjack/static/js/2.8ad96e55.chunk.js",
+    "static/js/2.8ad96e55.chunk.js.map": "/react-blackjack/static/js/2.8ad96e55.chunk.js.map",
+    "index.html": "/react-blackjack/index.html",
+    "static/css/main.0af143b8.chunk.css.map": "/react-blackjack/static/css/main.0af143b8.chunk.css.map",
+    "static/js/2.8ad96e55.chunk.js.LICENSE.txt": "/react-blackjack/static/js/2.8ad96e55.chunk.js.LICENSE.txt",
+    "static/media/styles.scss": "/react-blackjack/static/media/Eastwood.c538a3b0.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.112a79a1.js",
+    "static/js/2.8ad96e55.chunk.js",
+    "static/css/main.0af143b8.chunk.css",
+    "static/js/main.17afb537.chunk.js"
+  ]
+}
