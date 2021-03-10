@@ -5,8 +5,7 @@ import Rules from "../../components/Rules";
 
 const HomeScreen = () => {
   return (
-    <div className="main__box main__box--home">
-      <div>
+      <div className="text-center">
         <GameTitle/>
         <header>
           <nav>
@@ -21,7 +20,6 @@ const HomeScreen = () => {
           </nav>
         </header>
       </div>
-    </div>
   );
 };
 

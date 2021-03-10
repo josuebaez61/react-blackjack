@@ -14,9 +14,9 @@ const AppRouter = () => {
     <Router>
       <div className="main">
         <Switch>
-          <Route exact path="/" component={HomeScreen} />
+          <Route exact path="/home" component={HomeScreen} />
           <Route exact path="/ingame" component={GameScreen} />
-          <Redirect to='/' />,
+          <Redirect to='/home' />,
         </Switch>
       </div>
     </Router>

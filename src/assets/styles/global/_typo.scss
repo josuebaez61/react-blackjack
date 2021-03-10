@@ -1,17 +1,5 @@
-@font-face {
-    font-family: Casino;
-    src: url(../../fonts/Casino.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@500&display=swap');
 
-@font-face {
-    font-family: Eastwood;
-    src: url(../../fonts/Eastwood.ttf);
-}
-
-.fontCasino {
-    font-family: Casino;
-}
-
-.fontEastwood {
-    font-family: Eastwood;
+.fontHeptaSlab {
+    font-family: 'Hepta Slab', serif;
 }

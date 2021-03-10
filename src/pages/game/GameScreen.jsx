@@ -17,26 +17,24 @@ const GameScreen = () => {
   } = useSelector(({game}) => game);
 
   return (
-    <div className="main__box">
-      <div className="row no-gutters" style={{ height: "100%" }}>
-        <div className="row col p-3">
-          {/* <div className="col-md-12 d-flex justify-content-center mb-2">
-            <GameButtons playerwins={ player_wins } deckcounter={ deck.length }/>
-          </div> */}
-          <div className="col-md-12 h-50">
+      <div className="row no-gutters justify-content-center" style={{ height: "100%", width: "100%" }}>
+        <div className="row col pr-2 pl-2 p-md-3" style={{ height: "100vh" }}>
+          <div className="col-md-12 d-md-none d-flex justify-content-center mb-2">
+            <GameButtons playerwins={ player_wins } deck={ deck }/>
+          </div>
+          <div className="col-md-12 card-column">
             <PlayersTitles name="Jugador"/>
             <PlayerCards cardsProp={ 'player_cards' } />
           </div>
-          <div className="col-md-12 h-50">
+          <div className="col-md-12 card-column">
             <PlayersTitles name="Adversario"/>
             <PlayerCards cardsProp={ 'ia_cards' } />
           </div>
         </div>
-        <div className="col-md-auto" style={{ height: "100%" }}>
+        <div className="col-md-auto d-none d-md-block" style={{ height: "100%" }}>
           <Aside />
         </div>
       </div>
-    </div>
   );
 };
 

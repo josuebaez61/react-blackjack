@@ -1,11 +1,34 @@
+@import '../utilities/mixins';
+
+.card-column {
+    height: 350px;
+    @include bootstrapmedia(md) {
+        height: 50%;
+    }
+}
+
 .in-game-cards {
+    display: flex;
+    overflow: scroll;
     max-width: 934px;
     img {
         position: relative;
         left: 90px;
         margin-left: -90px;
-        height: 267.43px;
-        width: 175px;
+        height: 215px;
+        width: 141px;
+    }
+    @include bootstrapmedia(md) {
+        display: flex;
+        overflow: hidden;
+        max-width: 934px;
+        img {
+            position: relative;
+            left: 90px;
+            margin-left: -90px;
+            height: 267.43px;
+            width: 175px;
+        }
     }
 }
 

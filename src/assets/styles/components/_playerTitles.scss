@@ -1,0 +1,8 @@
+@import '../utilities/mixins';
+
+.playerTitles {
+    font-size: 2rem;
+    @include bootstrapmedia(md){
+        font-size: 2.6rem;
+    }
+}

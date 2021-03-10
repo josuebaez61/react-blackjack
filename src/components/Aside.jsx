@@ -31,7 +31,7 @@ const Aside = () => {
         <aside className="game-aside" >
             <Scoreboard rounds={ rounds }/>
             <Deck deck={ deck } playerwins={ player_wins }/>
-            <GameButtons deck={ deck } playerwins={ player_wins }/>
+            <GameButtons orientation="vertical" deck={ deck } playerwins={ player_wins }/>
         </aside>
     )
 }

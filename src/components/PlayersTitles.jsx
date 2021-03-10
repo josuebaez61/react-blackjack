@@ -10,7 +10,7 @@ const PlayersTitles = ({name}) => {
 
 
     return (
-        <h3 className="fontEastwood" style={{fontSize:'2.6rem'}}>
+        <h3 className="fontHeptaSlab playerTitles">
             {name} - <span className="badge badge-dark">{ name === "Jugador" ? player_points : ia_points }</span> <FontAwesomeIcon style={{fontSize:'1.3rem'}} icon={ faQuestionCircle }/>
         </h3>
     )

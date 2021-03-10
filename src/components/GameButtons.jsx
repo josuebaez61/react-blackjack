@@ -3,7 +3,7 @@ import { createSelectorHook, shallowEqual, useDispatch, useSelector } from "reac
 import Swal from "sweetalert2";
 import { changeTurn, endRound, execIATurn, initGame, pickCard, reset, startPickCard } from "../actions/gameActions";
 
-const GameButtons = ({ deck, playerwins }) => {
+const GameButtons = ({ deck, playerwins, orientation="" }) => {
 
   const dispatch = useDispatch();
 
@@ -43,7 +43,7 @@ const GameButtons = ({ deck, playerwins }) => {
   }
 
   return (
-    <div className="btn-group-vertical mt-3">
+    <div className={ orientation === "vertical" ? "btn-group-vertical mt-3" : "btn-group mt-3" }>
       <button 
         onClick={ handlePickCard } type="button" className="btn btn-primary game-button" 
         onMouseOver={ handleMouseOver }
