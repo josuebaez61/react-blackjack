@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-blackjack/static/css/main.48611e3a.chunk.css",
+    "main.css": "/react-blackjack/static/css/main.d62269da.chunk.css",
     "main.js": "/react-blackjack/static/js/main.21c83e66.chunk.js",
     "main.js.map": "/react-blackjack/static/js/main.21c83e66.chunk.js.map",
     "runtime-main.js": "/react-blackjack/static/js/runtime-main.112a79a1.js",
@@ -8,7 +8,7 @@
     "static/js/2.4ced07c8.chunk.js": "/react-blackjack/static/js/2.4ced07c8.chunk.js",
     "static/js/2.4ced07c8.chunk.js.map": "/react-blackjack/static/js/2.4ced07c8.chunk.js.map",
     "index.html": "/react-blackjack/index.html",
-    "static/css/main.48611e3a.chunk.css.map": "/react-blackjack/static/css/main.48611e3a.chunk.css.map",
+    "static/css/main.d62269da.chunk.css.map": "/react-blackjack/static/css/main.d62269da.chunk.css.map",
     "static/js/2.4ced07c8.chunk.js.LICENSE.txt": "/react-blackjack/static/js/2.4ced07c8.chunk.js.LICENSE.txt",
     "static/media/10C.png": "/react-blackjack/static/media/10C.9ed3d91b.png",
     "static/media/10D.png": "/react-blackjack/static/media/10D.7ae9eea7.png",
@@ -68,7 +68,7 @@
   "entrypoints": [
     "static/js/runtime-main.112a79a1.js",
     "static/js/2.4ced07c8.chunk.js",
-    "static/css/main.48611e3a.chunk.css",
+    "static/css/main.d62269da.chunk.css",
     "static/js/main.21c83e66.chunk.js"
   ]
 }
