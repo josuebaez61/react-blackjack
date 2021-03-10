@@ -1,9 +1,14 @@
+@import '../utilities/mixins';
+
 .menu {
     list-style-type: none;
     font-family: 'Hepta Slab', serif;
     li, button, a {
         color: white;
-        font-size: 2rem;
+        font-size: 1.3rem;
+        @include bootstrapmedia(md) {
+            font-size: 2rem;
+        }
         &:hover {
             color: #ccc;
             text-decoration: none;

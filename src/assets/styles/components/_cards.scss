@@ -1,7 +1,7 @@
 @import '../utilities/mixins';
 
 .card-column {
-    height: 350px;
+    height: 300px;
     @include bootstrapmedia(md) {
         height: 50%;
     }
@@ -19,7 +19,6 @@
         width: 141px;
     }
     @include bootstrapmedia(md) {
-        display: flex;
         overflow: hidden;
         max-width: 934px;
         img {
