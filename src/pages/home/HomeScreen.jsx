@@ -5,7 +5,7 @@ import Rules from "../../components/Rules";
 
 const HomeScreen = () => {
   return (
-      <div className="text-center">
+      <div className="home text-center">
         <GameTitle/>
         <header>
           <nav>
